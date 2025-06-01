@@ -1,0 +1,168 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: GmarketSansTTFBold;
+  src: url(./assets/fonts/GmarketSansTTFBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: GmarketSansTTFLight;
+  src: url(./assets/fonts/GmarketSansTTFLight.ttf) format('truetype');
+}
+
+@font-face {
+  font-family:GmarketSansTTFMedium ;
+  src: url(./assets/fonts/GmarketSansTTFMedium.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family:NotoSansKR-Black ;
+  src: url(./assets/fonts/NotoSansKR-Black.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-Bold;
+  src: url(./assets/fonts/NotoSansKR-Bold.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-ExtraBold;
+  src: url(./assets/fonts/NotoSansKR-ExtraBold.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family:NotoSansKR-ExtraLight ;
+  src: url(./assets/fonts/NotoSansKR-ExtraLight.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family:NotoSansKR-Light ;
+  src: url(./assets/fonts/NotoSansKR-Light.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-Medium;
+  src: url(./assets/fonts/NotoSansKR-Medium.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-Regular;
+  src: url(./assets/fonts/NotoSansKR-Regular.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-SemiBold;
+  src: url(./assets/fonts/NotoSansKR-SemiBold.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-Thin;
+  src: url(./assets/fonts/NotoSansKR-Thin.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: NotoSansKR-VariableFont_wght;
+  src: url(./assets/fonts/NotoSansKR-VariableFont_wght.ttf)  format('truetype');
+}
+
+@font-face {
+  font-family: ONE-Mobile-POP-OTF;
+  src: url(./assets/fonts/ONE-Mobile-POP-OTF.otf)  format('truetype');
+}
+
+@font-face {
+  font-family: ONE-Mobile-POP;
+  src: url(./assets/fonts/ONE-Mobile-POP.ttf)  format('truetype');
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+textarea:focus {
+  outline: none !important;
+}
+button:focus {
+  outline: none !important;
+}
+input:focus {
+  outline: none !important;
+}
+
+@layer utilities {
+  .inner-shadow {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
