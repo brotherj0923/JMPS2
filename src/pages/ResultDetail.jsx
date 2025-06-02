@@ -88,88 +88,88 @@ const useScale = () => {
             </div>
 
             {/* 카드 리스트 */}
-            {spots.map((spot, idx) => (
-            <div
-                key={idx}
-                className="absolute rounded-[68.5px] shadow-[0px_4px_16px_4px_rgba(72,49,147,0.12)]"
-                style={{
-                top: `${145 + idx * 190}px`,
-                left: "20px",
-                width: "345px",
-                height: "157px",
-                background: "linear-gradient(40deg, #EECCFE, #BEC2FF, #8FBDFF)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center", // 가운데 정렬
-                }}
-            >
+            <div className="flex flex-col items-center gap-5 mt-[150px]">
+                {spots.map((spot, idx) => (
                 <div
-                    className="bg-white flex"
+                    key={idx}
+                    className="relative w-[385px] h-[165px] bg-no-repeat bg-contain bg-center"
                     style={{
-                        width: "337px", // 바깥보다 -8px
-                        height: "149px", // 바깥보다 -8px
-                        borderRadius: "68px",
-                        flexDirection: spot.align === "left" ? "row" : "row-reverse",
-                        padding: "10px 15px",
-                        boxSizing: "border-box",
+                    backgroundImage: `url('/images/서브스팟배경.png')`, // Figma에서 만든 이미지
                     }}
                 >
-                    {/* 이미지 */}
-                <img
-                src={spot.img}
-                alt={spot.name}
-                onClick={() => setShowImage(spot.img)}
-                className="w-[123px] h-[123px] rounded-full object-cover cursor-pointer"
-                />
+                    <div
+                        className={`absolute top-[17px] ${spot.align === "left" ? "left-[17px]" : "right-[17px]"} flex ${
+                            spot.align === "left" ? "flex-row" : "flex-row-reverse"
+                            } items-center w-[310px] h-[123px]`}
+                    >
+                        {/* 이미지 */}
+                    <img
+                    src={spot.img}
+                    alt={spot.name}
+                    onClick={() => setShowImage(spot.img)}
+                    className="w-[123px] h-[120px] rounded-full border-l-inherit object-cover cursor-pointer"
+                    />
 
-                {/* 텍스트 정보 */}
-                <div className="flex flex-col justify-start ml-3 mr-3">
-                <div className="text-[16px] text-gray-600 font-bold font-['GmarketSansTTFBold']">{spot.label}</div>
-                <div className="text-[14px] text-[#B096FF] font-bold mt-1 font-['GmarketSansTTFBold']">{spot.name}</div>
-                <div className="text-[12px] text-gray-500 mt-1">{spot.desc}</div>
+                    {/* 텍스트 정보 */}
+                    <div className="flex flex-col justify-start ml-3 mr-3">
+                    <div className="text-[16px] text-gray-600 font-bold font-['GmarketSansTTFBold']">{spot.label}</div>
+                    <div className="text-[14px] text-[#B096FF] font-bold mt-1 font-['GmarketSansTTFBold']">{spot.name}</div>
+                    <div className="text-[12px] text-gray-500 mt-1">{spot.desc}</div>
 
-                {/* 태그들 */}
-                <div className="flex gap-2 mt-2">
-                    {spot.tags.map((tag, idx) => (
-                        <span
-                        key={idx}
-                        className="inline-flex items-center justify-center h-[18px] px-2 text-black text-xs"
-                        style={{
-                            borderRadius: "99px",
-                            border: "1px solid #00000058",
-                            background: "rgba(255, 255, 255, 0.15)",
-                        }}
-                        >
-                        {tag}
-                        </span>
-                    ))}
+                    {/* 태그들 */}
+                    <div className="flex gap-2 mt-2">
+                        {spot.tags.map((tag, idx) => (
+                            <span
+                            key={idx}
+                            className="inline-flex items-center justify-center h-[18px] px-2 text-black text-xs"
+                            style={{
+                                borderRadius: "99px",
+                                border: "1px solid #00000058",
+                                background: "rgba(255, 255, 255, 0.15)",
+                            }}
+                            >
+                            {tag}
+                            </span>
+                        ))}
+                        </div>
+                    </div>
                     </div>
                 </div>
-                </div>
+                ))}
             </div>
-            ))}
 
             {/* 뒤로가기 버튼 */}
             <button
             onClick={() => navigate(`/result/${id}`)} // ResultIntro로 이동
-            className="absolute bottom-[100px] left-[20px] px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm text-gray-700 hover:bg-gray-100 transition"
+            className="absolute top-[70px] left-[20px] px-3 py-2"
             >
-            ← 메인스팟 확인하기
-            </button>
-            <button
-            onClick={() => navigate(`/`)} // SlotMachine 으로 이동
-            className="absolute bottom-[100px] right-[35px] px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm text-gray-700 hover:bg-gray-100 transition"
-            >
-            처음으로
+            <img 
+                src="/images/뒤로가기버튼.png"
+                alt="뒤로가기"
+                className="w-7 h-7"
+            />
             </button>
 
-            {/* 버튼 */}
-            <button
-            onClick={() => window.open("https://www.naver.com")}
-            className="absolute bottom-[30px] left-[21px] w-[335px] h-[48px] bg-[#00D2FF] text-white font-bold rounded-md shadow hover:bg-[#00b9e4] transition"
-            >
-            설문조사 참여하고 더 많은 추천 코스 보기
-            </button>
+
+            <div
+                className="absolute bottom-[60px] left-[21px] gap-4 flex items-center">
+                    {/* 처음 화면으로 돌아가기 */}
+                    <button
+                    onClick={() => navigate(`/`)} // SlotMachine 으로 이동
+                    className="h-[48px] w-[80px] bg-[#9CC9FF] rounded-md font-bold text-white hover:bg-[#68acff] transition"
+                    >
+                    처음으로
+                    </button>
+
+                    {/* 버튼 */}
+                    <button
+                    onClick={() => window.open("https://www.naver.com")}
+                    className=" bg-[#9CC9FF] h-[48px] w-[250px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
+                    >
+                    설문조사 참여하기
+                    </button>
+            </div>
+
 
             {/* 이미지 클릭 시 전체보기 모달 */}
             {showImage && (

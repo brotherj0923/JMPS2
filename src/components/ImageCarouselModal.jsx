@@ -31,7 +31,14 @@ const ImageCarouselModal = ({ onClose }) => {
                 navigation
                 pagination={{ clickable: true }}
                 loop={true}
+                
             >
+                <style>
+                {`.swiper-button-next,
+                .swiper-button-prev {
+                    color: #CDCFFF; /* 원하는 색상으로 지정 */
+                `}
+                </style>
                 {dummyImages.map((src, idx) => (
                 <SwiperSlide key={idx}>
                     <img
@@ -46,7 +53,7 @@ const ImageCarouselModal = ({ onClose }) => {
             {/* 닫기 버튼 */}
             <button
             onClick={onClose}
-            className="mt-6 mx-auto block px-6 py-3 bg-[#B096FF] text-white rounded-full hover:bg-[#906bff]] transition"
+            className="mt-6 mx-auto block px-6 py-3 shadow-xl bg-[#CDCFFF] text-white rounded-full hover:bg-[#906bff]] transition"
             >
             닫기
             </button>

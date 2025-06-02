@@ -49,7 +49,7 @@ const SlotMachine = () => {
     const container = ref.current;
     container.innerHTML = "";
 
-    const spinLetters = Array.from({ length: 44 }, () =>
+    const spinLetters = Array.from({ length: 45 }, () =>
       EMOJIS[Math.floor(Math.random() * EMOJIS.length)]
     );
     spinLetters.push(finalLetter);
@@ -145,80 +145,13 @@ const SlotMachine = () => {
 
         {/* overflow-hidden 쓰면 화면 바깥으로 나간거는 안보이게 */}
     {/* 비눗방울 배경 이미지 */}
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full bg-center"
+        style={{
+          backgroundImage:'url("/images/배경.png")',
+          backgroundSize: "100% 100%",
+        }}
+    >
 
-    {/* 슬롯 왼쪽 비눗방울 */}
-    <img
-        src="/images/거품 1.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width: "400px",
-        height: "400px",
-        right:"190px",
-        top:"180px"
-        }}
-    />
-    <img
-        src="/images/거품 2.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width: "260px",
-        height: "464.2px",
-        left:"160px",
-        bottom:"506px"
-        }}
-    />
-    <img
-        src="/images/거품 1.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width: "273px",
-        height: "420px",
-        left:"170px",
-        bottom:"540px"
-        }}
-    />
-    <img
-        src="/images/거품 1.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width:"80px",
-        right:"275px",
-        top:"55px"
-        }}
-    />
-    <img
-        src="/images/거품 5.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width:"200px",
-        bottom:"1px",
-        }}
-    />
-    <img
-        src="/images/거품 7.png"
-        alt="bubble"
-        className="absolute z-10"
-        style={{
-        width:"400px",
-        bottom:"-260px",
-        }}
-    />
-    <img
-        src="/images/거품 2.png"
-        alt="bubble"
-        className="absolute z-40"
-        style={{
-        width:"170px",
-        right: "-50px",
-        bottom:"422px",
-        }}
-    />
 
     </div>
       {/* 텍스트 헤더 */}
@@ -230,11 +163,11 @@ const SlotMachine = () => {
             />
         </div>
 
-      <div className="absolute top-[120px] left-[85px] text-center text-[16px] text-[#333] font-['GmarketSansTTFMedium'] z-40 ">
+      <div className="absolute top-[140px] left-[74px] text-center text-[19px] text-[#333] font-['GmarketSansTTFMedium'] z-40 ">
         <p>데이트 장소 고민될 때 눌러봐!</p>
 
       </div>
-        <div className="absolute top-[170px] left-[70px] text-center text-[25px] font-['GmarketSansTTFBold'] z-40">
+        <div className="absolute top-[180px] left-[57px] text-center text-[30px] font-['GmarketSansTTFBold'] z-40">
             <span className="text-[#B096FF]">랜덤 데이트 </span>
             <span className="text-[#A9B8FD]">슬롯 머신</span>
         </div>
@@ -246,9 +179,9 @@ const SlotMachine = () => {
             alt="슬롯 본체"
             className="absolute inset-0 w-full h-full object-contain z-40"
             style={{
-              width: "325px",
-              top: "-595px",
-              left: "10px",
+              width: "310px",
+              top: "-605px",
+              left: "35px",
             }}
           />
 
@@ -261,15 +194,15 @@ const SlotMachine = () => {
             className="absolute z-30 origin-top-right cursor-pointer transition-transform"
             style={{
               width: "48px",
-              top: "-465px",
-              right: "8px",
+              top: "-475px",
+              right: "1px",
             }}
           />
         </div>
 
 
       {/* 슬롯 영역 */}
-        <div className="absolute z-30 flex gap-[1.17px] top-[419.34px] left-[50.26px] w-[241.8px] h-[286.96px]">
+        <div className="absolute z-30 flex gap-[1px] top-[409.34px] left-[74.4px] w-[228.8px] h-[286.96px]">
             {[reel1Ref, reel2Ref, reel3Ref].map((ref, idx) => (
             <div
                 key={idx}
@@ -285,7 +218,7 @@ const SlotMachine = () => {
 
       {/* 버튼 */}
         <button
-            className="absolute z-40 w-[214.5px] h-[75.96px] top-[622.872px] right-[109.2px]
+            className="absolute z-40 w-[206.5px] h-[75.96px] top-[607.872px] right-[95.5px]
             bg-[#A477FD] rounded-3xl shadow-md drop-shadow-lg inner-shadow text-white font-semibold text-lg flex items-center justify-center
             transition-transform  active:scale-105 hover:bg-[#9b6cff]"
             onClick={handleSpin}

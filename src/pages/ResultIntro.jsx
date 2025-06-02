@@ -123,9 +123,16 @@ const useScale = () => {
             {/* 다음 버튼 */}
             <button
             onClick={() => navigate(`/result/${id}/detail`)}
-            className="absolute bottom-[30px] left-1/2 -translate-x-1/2 px-6 py-3 bg-[#B096FF] text-white rounded-lg shadow hover:bg-[#9977ff] transition"
+            className="absolute bottom-[30px] left-1/2 -translate-x-1/2 px-6 py-3 bg-[#CDCFFF] rounded-lg hover:bg-[#9977ff] transition
+                    flex gap-1 text-white shadow-xl
+            "
             >
-            다음 ▶
+            자세히 보기 
+            <img
+                src="/images/뒤로가기버튼.png" // 👉 넣고 싶은 이미지 경로
+                alt="앞으로가기"
+                className="w-6 h-6 transform -scale-x-100" // 원하는 크기 조절
+            />
             </button>
         </div>
         </div>
