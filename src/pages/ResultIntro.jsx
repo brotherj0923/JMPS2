@@ -123,7 +123,7 @@ const useScale = () => {
             {/* 다음 버튼 */}
             <button
             onClick={() => navigate(`/result/${id}/detail`)}
-            className="absolute bottom-[30px] left-1/2 -translate-x-1/2 px-6 py-3 bg-[#CDCFFF] rounded-lg hover:bg-[#9977ff] transition
+            className="absolute bottom-[30px] left-1/2 -translate-x-1/2 px-6 py-3 bg-[#CDCFFF] rounded-lg hover:bg-[#CDCFFF] transition
                     flex gap-1 text-white shadow-xl
             "
             >
