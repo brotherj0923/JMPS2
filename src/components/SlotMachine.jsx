@@ -74,7 +74,7 @@ const SlotMachine = () => {
       { y: 0 },
       {
         y: `-${totalHeight}px`,
-        duration: 3,
+        duration: 5,
         delay: delay / 1000,
         ease: "expo.out",
         onComplete: () => {

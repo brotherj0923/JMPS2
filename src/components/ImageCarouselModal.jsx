@@ -1,9 +1,9 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import { Navigation, Pagination } from "swiper/modules";
 
 const dummyImages = [
   "/images/mainspots/A.png",
@@ -34,9 +34,19 @@ const ImageCarouselModal = ({ onClose }) => {
                 
             >
                 <style>
-                {`.swiper-button-next,
-                .swiper-button-prev {
-                    color: #CDCFFF; /* 원하는 색상으로 지정 */
+                {`
+                    .swiper-button-next,
+                    .swiper-button-prev {
+                        color: #CDCFFF; /* 원하는 색상으로 지정 */
+                    }
+                    .swiper-pagination-bullet {
+                        background: #D1D5DB; /* 불들어오는 색 변경 (pagination-bullet) */
+                        opacity: 1;
+                    }
+                    .swiper-pagination-bullet-active {
+                        background: #CDCFFF;
+                    }
+                
                 `}
                 </style>
                 {dummyImages.map((src, idx) => (
