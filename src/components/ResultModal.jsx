@@ -23,7 +23,7 @@ const ResultModal = ({ onClose , resultLetter }) => {
             onClick={onClose}
           >
           <img
-            src={`/images/slot/${resultLetter}.png`}
+            src={`${import.meta.env.BASE_URL}/images/slot/${resultLetter}.png`}
             alt={THEMES[resultLetter]}
             className="w-12 h-12 object-contain"
           />

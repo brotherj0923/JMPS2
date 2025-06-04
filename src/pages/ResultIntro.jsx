@@ -41,7 +41,7 @@ const useScale = () => {
                 {/* POPICK 로고 */}
                     <div className="absolute top-[40px] left-[30px] w-[80px] h-auto z-50">
                     <img
-                        src="/images/POPICK.png" 
+                        src={`${import.meta.env.BASE_URL}/images/POPICK.png`} 
                         alt="POPICK 로고"
                         className="w-full h-auto object-contain"
                     />
@@ -118,7 +118,7 @@ const useScale = () => {
                             <div className="relative w-full h-full">
                                 {/* 메인스팟 이미지 */}
                                 <img
-                                src={`/images/mainspots/${id}.webp`}
+                                src={`${import.meta.env.BASE_URL}/images/mainspots/${id}.webp`}
                                 alt="메인 스팟"
                                 style={{
                                     width: "308px",
@@ -148,7 +148,7 @@ const useScale = () => {
 
                 {/* 다음 버튼 */}
                 <img
-                    src="/images/코스보기최종.png"
+                    src={`${import.meta.env.BASE_URL}/images/코스보기최종.png`}
                     alt="코스보기"
                     onClick={() => navigate(`/result/${id}/detail`)}
                     className="absolute right-[55px] top-[220px] w-[115px] h-auto cursor-pointer z-30 animate-pulse shadow-lg rounded-xl"

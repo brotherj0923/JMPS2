@@ -56,7 +56,7 @@ const SlotMachine = () => {
 
     spinLetters.forEach((char) => {
       const img = document.createElement("img");
-      img.src = `/images/slot/${char}.png`;
+      img.src = `${import.meta.env.BASE_URL}/images/slot/${char}.png`;
       img.alt = char;
       img.className = "w-[74px] h-[74px] object-contain block mx-auto";
 
@@ -147,7 +147,7 @@ const SlotMachine = () => {
     {/* 비눗방울 배경 이미지 */}
     <div className="relative w-full h-full bg-center"
         style={{
-          backgroundImage:'url("/images/배경.png")',
+          backgroundImage: `url("${import.meta.env.BASE_URL}/images/배경.png")`,
           backgroundSize: "100% 100%",
         }}
     >
@@ -157,7 +157,7 @@ const SlotMachine = () => {
       {/* 텍스트 헤더 */}
         <div className="absolute top-[40px] left-[30px] w-[80px] h-auto z-50">
             <img
-                src="/images/POPICK.png" 
+                src={`${import.meta.env.BASE_URL}/images/POPICK.png`} 
                 alt="POPICK 로고"
                 className="w-full h-auto object-contain"
             />
@@ -175,7 +175,7 @@ const SlotMachine = () => {
         <div className="relative w-full max-w-[420px] aspect-[3/4] mx-auto">
           {/* 슬롯머신 이미지 */}
           <img
-            src="/images/슬롯머신(최종).png"
+            src={`${import.meta.env.BASE_URL}/images/슬롯머신(최종).png`}
             alt="슬롯 본체"
             className="absolute inset-0 w-full h-full object-contain z-40"
             style={{
@@ -188,7 +188,7 @@ const SlotMachine = () => {
           {/* 레버 이미지 */}
           <img
             ref={leverRef}
-            src="/images/슬롯손잡이.png"
+            src={`${import.meta.env.BASE_URL}/images/슬롯손잡이.png`}
             alt="레버"
             onClick={pullLever}
             className="absolute z-30 origin-top-right cursor-pointer transition-transform"

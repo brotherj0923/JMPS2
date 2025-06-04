@@ -38,7 +38,7 @@ const useScale = () => {
 
     const spots = ["A", "B", "C"].map((key, idx) => ({
         ...subspotData[id][key], // subspotData.A.A 같은 식으로 접근
-        img: `/images/subspots/${id}/${key}.webp`,
+        img: `${import.meta.env.BASE_URL}/images/subspots/${id}/${key}.webp`,
         align: idx % 2 === 0 ? "left" : "right",
     }));
 
@@ -55,7 +55,7 @@ const useScale = () => {
                 {/* POPICK 로고 */}
                 <div className="absolute top-[40px] left-[30px] w-[80px] h-auto z-50">
                 <img
-                    src="/images/POPICK.png" 
+                    src={`${import.meta.env.BASE_URL}/images/POPICK.png`}
                     alt="POPICK 로고"
                     className="w-full h-auto object-contain"
                 />
@@ -74,7 +74,7 @@ const useScale = () => {
                         key={idx}
                         className="relative top-[-10px] w-[385px] h-[175px] bg-no-repeat bg-contain bg-center"
                         style={{
-                        backgroundImage: `url('/images/서브스팟배경.png')`, // Figma에서 만든 이미지
+                        backgroundImage: `url('${import.meta.env.BASE_URL}/images/서브스팟배경.png')`, // Figma에서 만든 이미지
                         }}
                     >
                         {/* 이미지 */}
@@ -102,7 +102,7 @@ const useScale = () => {
                             </div>
                             <a href={spot.link} target="_blank" rel="noopener noreferrer">
                                 <img
-                                    src="/images/더보기.png"
+                                    src={`${import.meta.env.BASE_URL}/images/더보기.png`}
                                     alt="더보기"
                                     className="w-[100px] h-[25px] object-contain cursor-pointer"
                                 />
@@ -149,7 +149,7 @@ const useScale = () => {
                 className="absolute top-[70px] left-[20px] px-3 py-2"
                 >
                 <img 
-                    src="/images/뒤로가기버튼.png"
+                    src={`${import.meta.env.BASE_URL}/images/뒤로가기버튼.png`}
                     alt="뒤로가기"
                     className="w-7 h-7"
                 />

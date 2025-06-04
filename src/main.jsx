@@ -7,7 +7,7 @@ import ResultPage from './pages/Result.jsx';
 import SlotMachine from "./components/SlotMachine";
 import ResultIntro from './pages/ResultIntro';
 import ResultDetail from './pages/ResultDetail';
-import TestFigmaPage from './pages/TestFigmaPage';
+
 
 const router = createBrowserRouter([
   {
@@ -23,16 +23,16 @@ const router = createBrowserRouter([
         element: <ResultIntro />, // ✅ 소개 페이지
       },
       {
-        path: "test",
-        element: <TestFigmaPage />,
-      },
-      {
         path: "result/:id/detail",
         element: <ResultDetail />, // ✅ 코스 상세 페이지
       },
     ],
   },
-]);
+],
+ {
+    basename: "/JMPS2", // 🧠 ✅ 여기를 꼭 추가!
+  }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
