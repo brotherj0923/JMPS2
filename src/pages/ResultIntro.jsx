@@ -27,7 +27,7 @@ const useScale = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const scale = useScale();
-    const { title, name, tagList, descTitle, desc } = mainspotIntroData[id];
+    const { title, name, tagList, desc } = mainspotIntroData[id];
     return (
         <div className="w-screen h-screen flex items-center justify-center overflow-hidden">
             <div
@@ -52,7 +52,7 @@ const useScale = () => {
                     className="absolute left-[28px] top-[80px] flex flex-col items-center"
                     style={{
                         width: "334px",
-                        height: "662px",
+                        height: "740px",
                         flexShrink: 0,
                         borderRadius: "12px",
                         border: "1px solid #EECCFE",
@@ -65,16 +65,16 @@ const useScale = () => {
                     {/* 텍스트들 */}
                     <div
                         className="absolute"
-                        style={{ top: "15px", left: "50%", transform:"translate(-50%)" ,width: "max-content",}}
+                        style={{ top: "20px", left: "50%", transform:"translate(-50%)" ,width: "max-content",}}
                         >
-                        <p className="text-white text-[15px] font-semibold text-center">{title}</p>
+                        <p className="text-white text-[15px] text-center font-['NanumSquareEB']">{title}</p>
                     </div>
                     
 
                     <div
-                        className="absolute top-[45px] left-1/2 transform -translate-x-1/2 flex items-center gap-2"
+                        className="absolute top-[41px] left-1/2 transform -translate-x-1/2 flex items-center gap-2"
                         >
-                        <p className="text-white text-[28px] font-bold text-center whitespace-nowrap">
+                        <p className="text-white text-[28px] font-['NanumSquareEB'] text-center whitespace-nowrap">
                             {name}
                         </p>
                     </div>
@@ -86,7 +86,7 @@ const useScale = () => {
                         {tagList.map((tag, idx) => (
                         <span
                             key={idx}
-                            className="inline-flex items-center justify-center h-[18px] px-4 text-white text-xs"
+                            className="inline-flex items-center justify-center h-[18px] px-4 text-white text-xs font-['NotoSansKR-Regular']"
                             style={{
                             borderRadius: "99px",
                             border: "1px solid #FFF",
@@ -106,7 +106,7 @@ const useScale = () => {
                             className="absolute top-[120px] cursor-pointer"
                             style={{
                                 width: "324px",
-                                height: "535px",
+                                height: "610px",
                                 borderRadius: "12px",
                                 border: "1px solid #EECCFE",
                                 background:
@@ -122,26 +122,23 @@ const useScale = () => {
                                 alt="메인 스팟"
                                 style={{
                                     width: "308px",
-                                    height: "514px",
+                                    height: "580px",
                                     objectFit: "cover",
                                     marginTop: "8px", 
                                     marginLeft: "8px", 
                                     marginRight: "8px", 
-                                    marginBottom: "16px", 
+                                    marginBottom: "10px", 
                                     borderRadius: "10px",
                                 }}
                                 />
 
                                 {/* ✨ 그라데이션 오버레이 + 설명 텍스트 */}
-                                <div className="absolute bottom-[16px] left-[8px] w-[308px] h-[145px]
-                                    bg-gradient-to-t from-black/90 to-transparent 
-                                    text-white rounded-[10px] p-4 z-10">
-                                <h2 className="text-sm font-semibold mb-1">
-                                    {descTitle}
-                                </h2>
-                                <p className="text-xs leading-relaxed text-white/90">
-                                    {desc}
-                                </p>
+                                <div className="absolute bottom-[12px] left-[8px] w-[308px] h-[140px]
+                                        bg-gradient-to-t from-black/90 via-black/70 to-transparent 
+                                        text-white rounded-[10px] p-4 z-10">
+                                        <p className="text-xs font-['NanumSquareEB'] leading-relaxed text-white/90">
+                                            {desc}
+                                        </p>
                                 </div>
                             </div>
                             </div>

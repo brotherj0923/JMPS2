@@ -90,72 +90,53 @@ const useScale = () => {
 
 
                     <div
-                        className="absolute top-[30px] flex flex-col space-y-1"
+                        className="absolute top-[30px] flex flex-col space-y-1 text-left"
                         style={{
-                            left: spot.align === 'left'? '163px' : '29px',
-                            textAlign: spot.align === 'left' ? 'left' : 'right',
-                            width: '195px',
+                            left: spot.align === 'left' ? '161px' : '52px',
+                            width: spot.align === 'left' ? '195px' : '185px',
                         }}
                     >
-
-                        
-                        {/* <div className="text-[16px] text-gray-600 font-bold font-['GmarketSansTTFBold'] leading-tight ">{spot.label}</div> */}
-                        <div className="flex justify-between items-center">
-                            {spot.align === 'left' ? (
-                                <>
-                                <div className="text-[16px] text-gray-600 font-bold font-['GmarketSansTTFBold'] leading-tight">
-                                    {spot.label}
-                                </div>
-                                <a
-                                    href={spot.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
+                        <div className="flex">
+                            <div className="text-[18px] text-gray-600 font-bold font-['NanumSquareEB'] leading-regular">
+                                {spot.label}
+                            </div>
+                            <a href={spot.link} target="_blank" rel="noopener noreferrer">
+                                <img
                                     src="/images/더보기.png"
                                     alt="더보기"
-                                    className="w-[100px] h-[20px] ml-[-33px] object-contain cursor-pointer"
-                                    />
-                                </a>
-                                </>
-                            ) : (
-                                <>
-                                <div className="text-[16px] text-gray-600 font-bold font-['GmarketSansTTFBold'] ml-[38px]  leading-tight">
-                                    {spot.label}
-                                </div>
-                                <a
-                                    href={spot.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                    src="/images/더보기.png"
-                                    alt="더보기"
-                                    className="w-[100px] h-[20px] ml-[25px] object-contain cursor-pointer"
-                                    />
-                                </a>
-                                </>
-                            )}
+                                    className="w-[100px] h-[25px] object-contain cursor-pointer"
+                                />
+                            </a>
                         </div>
 
-
-                        <div className="text-[14px] text-[#B096FF] font-bold mt-2 font-['GmarketSansTTFBold'] leading-tight">{spot.name}</div>
-                        <div className="text-[13px] text-gray-600 font-['NanumSquareEB'] mt-2 leading-tight">{spot.desc}</div>
-                        
-                        <div className={`flex ${spot.align === 'left' ? 'justify-start' : 'justify-end'} gap-2 mt-2 flex-wrap`}>
+                        <div className="text-[15px] text-[#B096FF] font-bold font-['GmarketSansTTFBold'] leading-tight">
+                            {spot.name}
+                        </div>
+                        <div className="text-[13px] text-gray-600 font-['NanumSquareEB'] leading-light">
+                            {spot.desc}
+                        </div>
+                        <div
+                            className={`relative flex flex-wrap gap-x-1 gap-y-1`}
+                            style={
+                                spot.align === 'right'
+                                ? { left: '45px' } // 두 번째 카드 (이미지가 오른쪽)
+                                : { right: '5px' }  // 첫 번째 & 세 번째 카드 (이미지가 왼쪽)
+                            }
+                        >
                             {spot.tags.map((tag, tagIdx) => (
-                                <span
+                            <span
                                 key={tagIdx}
                                 className="inline-flex items-center justify-center h-[18px] px-2 text-black text-xs"
                                 style={{
-                                    borderRadius: '99px',
-                                    border: '1px solid #00000058',
-                                    background: 'rgba(255, 255, 255, 0.15)',
+                                borderRadius: '99px',
+                                border: '1px solid #00000058',
+                                background: 'rgba(255, 255, 255, 0.15)',
                                 }}
-                                >
+                            >
                                 {tag}
-                                </span>
+                            </span>
                             ))}
+                        
                         </div>
                     </div>
                     </div>

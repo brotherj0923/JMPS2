@@ -166,7 +166,85 @@ button:focus-visible {
   src: url(./assets/fonts/NanumSquareB.ttf)  format('truetype');
 }
 
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('/fonts/GmarketSansBold.otf') format('opentype');
+}
 
+@font-face {
+  font-family: 'GmarketSansLight';
+  src: url('/fonts/GmarketSansLight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('/fonts/GmarketSansMedium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareB';
+  src: url('/fonts/NanumSquareB.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareEB';
+  src: url('/fonts/NanumSquareEB.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareL';
+  src: url('/fonts/NanumSquareL.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareOTF_acB';
+  src: url('/fonts/NanumSquareOTF_acB.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareOTF_acEB';
+  src: url('/fonts/NanumSquareOTF_acEB.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareOTF_acL';
+  src: url('/fonts/NanumSquareOTF_acL.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareOTF_acR';
+  src: url('/fonts/NanumSquareOTF_acR.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'NanumSquareR';
+  src: url('/fonts/NanumSquareR.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'GmarketSansTTFBold';
+  src: url('/fonts/GmarketSansTTFBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'GmarketSansTTFMedium';
+  src: url('/fonts/GmarketSansTTFMedium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NanumSquareEB';
+  src: url('/fonts/NanumSquareEB.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Black';
+  src: url('/fonts/NotoSansKR-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url('/fonts/NotoSansKR-Regular.woff2') format('woff2');
+}
 
 button:focus {
   outline: none !important;

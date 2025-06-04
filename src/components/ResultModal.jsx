@@ -13,7 +13,7 @@ const ResultModal = ({ onClose , resultLetter }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl p-8 w-80 shadow-2xl text-center">
-          <h2 className="text-2xl font-bold mb-4 font-['ONE-Mobile-POP']">
+          <h2 className="text-2xl font-bold mb-4 font-['ONE-Mobile-POP-OTF']">
             <span className="text-[#8399fa]">{THEMES[resultLetter]} 테마 </span>
             <span>코스 당첨!</span>
           </h2>
