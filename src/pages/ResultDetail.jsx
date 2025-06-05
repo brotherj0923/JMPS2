@@ -3,23 +3,26 @@ import { useEffect, useState } from "react";
 import ImageModal from "../components/ImageModal"; // 👈 클릭 시 전체 이미지 보여줄 모달
 import { subspotData } from "../data/subspotData";
 
-const DESIGN_WIDTH = 390;
-const DESIGN_HEIGHT = 844;
+const DESIGN_WIDTH = 375;
+const DESIGN_HEIGHT = 640;
 
 const useScale = () => {
-    const [scale, setScale] = useState(1);
-    useEffect(() => {
-        const updateScale = () => {
-        const w = window.innerWidth / DESIGN_WIDTH;
-        const h = window.innerHeight / DESIGN_HEIGHT;
-        setScale(Math.min(w, h));
-        };
-        updateScale();
-        window.addEventListener("resize", updateScale);
-        return () => window.removeEventListener("resize", updateScale);
-    }, []);
-    return scale;
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const wRatio = window.innerWidth / DESIGN_WIDTH;
+      const hRatio = window.innerHeight / DESIGN_HEIGHT;
+      setScale(Math.min(wRatio, hRatio));
     };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+
+  return scale;
+};
 
     const ResultDetail = () => {
     const { id } = useParams();
@@ -45,15 +48,16 @@ const useScale = () => {
     return (
         <div className="w-screen h-screen flex items-center justify-center overflow-hidden bg-white">
             <div
-                className="origin-top relative"
+                className="origin-center relative"
                 style={{
-                width: "390px",
-                height: "844px",
+                width: "375px",
+                height: "640px",
                 transform: `scale(${scale})`,
+                transformOrigin: "center",
                 }}
             >
                 {/* POPICK 로고 */}
-                <div className="absolute top-[40px] left-[30px] w-[80px] h-auto z-50">
+                <div className="absolute top-[20px] left-[20px] w-[80px] h-auto z-50">
                 <img
                     src={`${import.meta.env.BASE_URL}/images/POPICK.png`}
                     alt="POPICK 로고"
@@ -62,19 +66,20 @@ const useScale = () => {
                 </div>
 
                 {/* 중앙 타이틀 */}
-                <div className="absolute top-[75px] left-[90px] w-[210px] h-[34px] text-center font-bold text-[#878BFF] text-[22px]">
+                <div className="absolute top-[70px] left-[70px] w-[250px] h-[30px] text-center font-bold text-[#878BFF] text-[25px]">
                 <span className="text-[#B096FF] font-[GmarketSansTTFBold]" >함께 다녀올 </span>
                 <span className="text-[#A9B8FD] font-[GmarketSansTTFBold]">서브 스팟 </span>
                 </div>
 
                 {/* 카드 리스트 */}
-                <div className="flex flex-col items-center gap-3 mt-[150px]">
+                <div className="flex flex-col items-center mt-[130px] ">
                     {spots.map((spot, idx) => (
                     <div
                         key={idx}
-                        className="relative top-[-10px] w-[385px] h-[175px] bg-no-repeat bg-contain bg-center"
+                        className="relative top-[-20px] w-[395px] h-[160px] bg-no-repeat bg-cover bg-center"
                         style={{
                         backgroundImage: `url('${import.meta.env.BASE_URL}/images/서브스팟배경.png')`, // Figma에서 만든 이미지
+                        backgroundSize: "100% 105%"
                         }}
                     >
                         {/* 이미지 */}
@@ -82,44 +87,44 @@ const useScale = () => {
                     src={spot.img}
                     alt={spot.name}
                     onClick={() => setShowImage(spot.img)}
-                    className="absolute top-[22px] w-[123px] h-[123px] rounded-full object-cover cursor-pointer"
+                    className="absolute top-[20px] w-[113px] h-[113px] rounded-full object-cover cursor-pointer"
                     style={{
-                        left : spot.align === 'left' ? '31px' : '232px' 
+                        left : spot.align === 'left' ? '29px' : '253px' 
                     }}
                     />
 
 
                     <div
-                        className="absolute top-[30px] flex flex-col space-y-1 text-left"
+                        className="absolute top-[22px] flex flex-col space-y-1 text-left"
                         style={{
-                            left: spot.align === 'left' ? '161px' : '52px',
-                            width: spot.align === 'left' ? '195px' : '185px',
+                            left: spot.align === 'left' ? '148px' : '65px',
+                            width: spot.align === 'left' ? '190px' : '185px',
                         }}
                     >
                         <div className="flex">
-                            <div className="text-[18px] text-gray-600 font-bold font-['NanumSquareEB'] leading-regular">
+                            <div className="text-[17px] text-gray-600 font-bold font-['NanumSquareEB'] leading-regular">
                                 {spot.label}
                             </div>
                             <a href={spot.link} target="_blank" rel="noopener noreferrer">
                                 <img
                                     src={`${import.meta.env.BASE_URL}/images/더보기.png`}
                                     alt="더보기"
-                                    className="w-[100px] h-[25px] object-contain cursor-pointer"
+                                    className="w-[72px] h-[21px] object-contain cursor-pointer"
                                 />
                             </a>
                         </div>
 
-                        <div className="text-[15px] text-[#B096FF] font-bold font-['GmarketSansTTFBold'] leading-tight">
+                        <div className="text-[14px] text-[#B096FF] font-bold font-['GmarketSansTTFBold'] leading-tight">
                             {spot.name}
                         </div>
-                        <div className="text-[13px] text-gray-600 font-['NanumSquareEB'] leading-light">
+                        <div className="text-[12px] text-gray-600 font-['NanumSquareEB'] leading-regular">
                             {spot.desc}
                         </div>
                         <div
                             className={`relative flex flex-wrap gap-x-1 gap-y-1`}
                             style={
                                 spot.align === 'right'
-                                ? { left: '45px' } // 두 번째 카드 (이미지가 오른쪽)
+                                ? { left: '40px' } // 두 번째 카드 (이미지가 오른쪽)
                                 : { right: '5px' }  // 첫 번째 & 세 번째 카드 (이미지가 왼쪽)
                             }
                         >
@@ -146,7 +151,7 @@ const useScale = () => {
                 {/* 뒤로가기 버튼 */}
                 <button
                 onClick={() => navigate(`/result/${id}`)} // ResultIntro로 이동
-                className="absolute top-[70px] left-[20px] px-3 py-2"
+                className="absolute top-[68px] left-[20px] px-3 py-2"
                 >
                 <img 
                     src={`${import.meta.env.BASE_URL}/images/뒤로가기버튼.png`}
@@ -157,21 +162,21 @@ const useScale = () => {
 
 
                 <div
-                    className="absolute bottom-[60px] left-[21px] gap-4 flex items-center">
+                    className="absolute bottom-[10px] left-[14px] gap-3 flex items-center">
                         {/* 처음 화면으로 돌아가기 */}
                         <button
                         onClick={() => navigate(`/`)} // SlotMachine 으로 이동
-                        className="h-[48px] w-[80px] bg-[#9CC9FF] rounded-md font-bold text-white hover:bg-[#68acff] transition"
+                        className="h-[40px] w-[80px] bg-[#9CC9FF] rounded-md font-bold text-white hover:bg-[#68acff] transition"
                         >
                         처음으로
                         </button>
 
                         {/* 버튼 */}
                         <button
-                        onClick={() => window.open("https://www.naver.com")}
-                        className=" bg-[#9CC9FF] h-[48px] w-[250px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
+                        onClick={() => window.open("https://smore.im/form/KUCbgkpUJs")}
+                        className=" bg-[#9CC9FF] h-[40px] w-[257px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
                         >
-                        설문조사 참여하기
+                        코스 평가하고 공유하기
                         </button>
                 </div>
 

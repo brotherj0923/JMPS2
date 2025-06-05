@@ -72,98 +72,93 @@ button:focus-visible {
 @tailwind utilities;
 
 @font-face {
-  font-family: GmarketSansTTFBold;
-  src: url(./assets/fonts/GmarketSansTTFBold.ttf) format('truetype');
-}
-
-@font-face {
   font-family: GmarketSansTTFLight;
-  src: url(./assets/fonts/GmarketSansTTFLight.ttf) format('truetype');
+  src: url('/fonts/GmarketSansTTFLight.ttf')  format('truetype');
 }
 
 @font-face {
   font-family:GmarketSansTTFMedium ;
-  src: url(./assets/fonts/GmarketSansTTFMedium.ttf)  format('truetype');
+  src: url('/fonts/GmarketSansTTFMedium.ttf')   format('truetype');
 }
 
 @font-face {
   font-family:NotoSansKR-Black ;
-  src: url(./assets/fonts/NotoSansKR-Black.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Black.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-Bold;
-  src: url(./assets/fonts/NotoSansKR-Bold.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Bold.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-ExtraBold;
-  src: url(./assets/fonts/NotoSansKR-ExtraBold.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-ExtraBold.ttf')   format('truetype');
 }
 
 @font-face {
   font-family:NotoSansKR-ExtraLight ;
-  src: url(./assets/fonts/NotoSansKR-ExtraLight.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-ExtraLight.ttf')   format('truetype');
 }
 
 @font-face {
   font-family:NotoSansKR-Light ;
-  src: url(./assets/fonts/NotoSansKR-Light.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Light.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-Medium;
-  src: url(./assets/fonts/NotoSansKR-Medium.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Medium.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-Regular;
-  src: url(./assets/fonts/NotoSansKR-Regular.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Regular.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-SemiBold;
-  src: url(./assets/fonts/NotoSansKR-SemiBold.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-SemiBold.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-Thin;
-  src: url(./assets/fonts/NotoSansKR-Thin.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-Thin.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NotoSansKR-VariableFont_wght;
-  src: url(./assets/fonts/NotoSansKR-VariableFont_wght.ttf)  format('truetype');
+  src: url('/fonts/NotoSansKR-VariableFont_wght.ttf')  format('truetype');
 }
 
 @font-face {
   font-family: ONE-Mobile-POP-OTF;
-  src: url(./assets/fonts/ONE-Mobile-POP-OTF.otf)  format('truetype');
+  src: url('/fonts/ONE-Mobile-POP-OTF.otf')   format('opentype');
 }
 
 @font-face {
   font-family: ONE-Mobile-POP;
-  src: url(./assets/fonts/ONE-Mobile-POP.ttf)  format('truetype');
+  src: url('/fonts/ONE-Mobile-POP.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NanumSquareEB;
-  src: url(./assets/fonts/NanumSquareEB.ttf)  format('truetype');
+  src: url('/fonts/NanumSquareEB.ttf')   format('truetype');
 }
 
 @font-face {
   font-family: NanumSquareL;
-  src: url(./assets/fonts/NanumSquareL.ttf)  format('truetype');
+  src: url('/fonts/NanumSquareL.ttf')  format('truetype');
 }
 
 @font-face {
   font-family: NanumSquareR;
-  src: url(./assets/fonts/NanumSquareR.ttf)  format('truetype');
+  src: url('/fonts/NanumSquareR.ttf')  format('truetype');
 }
 
 @font-face {
   font-family: NanumSquareB;
-  src: url(./assets/fonts/NanumSquareB.ttf)  format('truetype');
+  src: url('/fonts/NanumSquareB.ttf')  format('truetype');
 }
 
 @font-face {

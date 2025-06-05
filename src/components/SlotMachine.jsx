@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const EMOJIS = ["A", "B", "C", "D", "E"];
 const getRandomLetter = () => EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
 
-const DESIGN_WIDTH = 390;
-const DESIGN_HEIGHT = 844;
+const DESIGN_WIDTH = 375;
+const DESIGN_HEIGHT = 640;
 
 const useScale = () => {
   const [scale, setScale] = useState(1);
@@ -58,7 +58,7 @@ const SlotMachine = () => {
       const img = document.createElement("img");
       img.src = `${import.meta.env.BASE_URL}/images/slot/${char}.png`;
       img.alt = char;
-      img.className = "w-[74px] h-[74px] object-contain block mx-auto";
+      img.className = "w-[64px] h-[74px] object-contain block mx-auto";
 
       const div = document.createElement("div");
       div.className = "text-4xl w-[74px] h-[100px] flex items-center justify-center";
@@ -133,8 +133,8 @@ const SlotMachine = () => {
       <div
         className="origin-top relative"
         style={{
-          width: "390px",
-          height: "844px",
+          width: "375px",
+          height: "640px",
           transform: `scale(${scale})`,
         }}
       >
@@ -155,7 +155,7 @@ const SlotMachine = () => {
 
     </div>
       {/* 텍스트 헤더 */}
-        <div className="absolute top-[40px] left-[30px] w-[80px] h-auto z-50">
+        <div className="absolute top-[20px] left-[20px] w-[80px] h-auto z-50">
             <img
                 src={`${import.meta.env.BASE_URL}/images/POPICK.png`} 
                 alt="POPICK 로고"
@@ -163,11 +163,11 @@ const SlotMachine = () => {
             />
         </div>
 
-      <div className="absolute top-[140px] left-[74px] text-center text-[19px] text-[#333] font-['GmarketSansTTFMedium'] z-40 ">
+      <div className="absolute top-[90px] left-[68px] text-center text-[19px] text-[#333] font-['GmarketSansTTFMedium'] z-40 ">
         <p>데이트 장소 고민될 때 눌러봐!</p>
 
       </div>
-        <div className="absolute top-[180px] left-[57px] text-center text-[30px] font-['GmarketSansTTFBold'] z-40">
+        <div className="absolute top-[125px] left-[47px] text-center text-[30px] font-['GmarketSansTTFBold'] z-40">
             <span className="text-[#B096FF]">랜덤 데이트 </span>
             <span className="text-[#A9B8FD]">슬롯 머신</span>
         </div>
@@ -179,9 +179,9 @@ const SlotMachine = () => {
             alt="슬롯 본체"
             className="absolute inset-0 w-full h-full object-contain z-40"
             style={{
-              width: "310px",
-              top: "-605px",
-              left: "35px",
+              width: "260px",
+              top: "-525px",
+              left: "55px",
             }}
           />
 
@@ -194,15 +194,15 @@ const SlotMachine = () => {
             className="absolute z-30 origin-top-right cursor-pointer transition-transform"
             style={{
               width: "48px",
-              top: "-475px",
-              right: "1px",
+              top: "-408px",
+              right: "17px",
             }}
           />
         </div>
 
 
       {/* 슬롯 영역 */}
-        <div className="absolute z-30 flex gap-[1px] top-[409.34px] left-[74.4px] w-[228.8px] h-[286.96px]">
+        <div className="absolute z-30 flex gap-[1px] top-[283px] left-[87px] w-[195px] h-[100px]">
             {[reel1Ref, reel2Ref, reel3Ref].map((ref, idx) => (
             <div
                 key={idx}
@@ -218,7 +218,7 @@ const SlotMachine = () => {
 
       {/* 버튼 */}
         <button
-            className="absolute z-40 w-[206.5px] h-[75.96px] top-[607.872px] right-[95.5px]
+            className="absolute z-40 w-[175px] h-[63px] top-[455px] right-[102px]
             bg-[#A477FD] rounded-3xl shadow-md drop-shadow-lg inner-shadow text-white font-semibold text-lg flex items-center justify-center
             transition-transform  active:scale-105 hover:bg-[#9b6cff]"
             onClick={handleSpin}
