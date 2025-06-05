@@ -1,33 +1,48 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { mainspotIntroData } from "../data/mainspotIntroData";
+import fitty from "fitty";
 
 const DESIGN_WIDTH = 375;
 const DESIGN_HEIGHT = 640;
 
+
 const useScale = () => {
-  const [scale, setScale] = useState(1);
+    const [scale, setScale] = useState(1);
 
-  useEffect(() => {
-    const updateScale = () => {
-      const wRatio = window.innerWidth / DESIGN_WIDTH;
-      const hRatio = window.innerHeight / DESIGN_HEIGHT;
-      setScale(Math.min(wRatio, hRatio));
+    useEffect(() => {
+        const updateScale = () => {
+        const wRatio = window.innerWidth / DESIGN_WIDTH;
+        const hRatio = window.innerHeight / DESIGN_HEIGHT;
+        setScale(Math.min(wRatio, hRatio));
+        };
+
+        updateScale();
+        window.addEventListener("resize", updateScale);
+        return () => window.removeEventListener("resize", updateScale);
+    }, []);
+
+    return scale;
     };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
-
-  return scale;
-};
 
     const ResultIntro = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const scale = useScale();
     const { title, name, tagList, desc } = mainspotIntroData[id];
+    const textRef = useRef(null);
+
+    useEffect(() => {
+        if (textRef.current) {
+            fitty(textRef.current, {
+            minSize: 10,
+            maxSize: 20,
+            multiLine: true,
+            observeMutations: false,
+            });
+        }
+        }, [desc]);
+
     return (
         <div className="w-screen h-screen flex items-center justify-center overflow-hidden">
             <div
@@ -55,7 +70,6 @@ const useScale = () => {
                         height: "570px",
                         flexShrink: 0,
                         borderRadius: "12px",
-                        border: "1px solid #EECCFE",
                         background:
                         "linear-gradient(306deg, #FECCF2 14.88%, #BEC2FF 55.14%, #8FBDFF 97.05%), #FFF",
                         boxShadow: "0px 4px 16px 4px rgba(72, 49, 147, 0.12)",
@@ -108,7 +122,6 @@ const useScale = () => {
                                 width: "324px",
                                 height: "430px",
                                 borderRadius: "12px",
-                                border: "1px solid #EECCFE",
                                 background:
                                 "linear-gradient(0deg, #FFF 50%, #FFF 100%), #FFF",
                                 boxShadow: "0px 4px 16px 4px rgba(72, 49, 147, 0.12)",
@@ -133,11 +146,13 @@ const useScale = () => {
                                 />
 
                                 {/* ✨ 그라데이션 오버레이 + 설명 텍스트 */}
-                                <div className="absolute bottom-[15px] left-[7px] w-[315px] h-[138px]
+                                <div className="absolute bottom-[15px] left-[7px] w-[310px] h-[105px]
                                         bg-gradient-to-t from-black/90 via-black/70 to-transparent 
-                                        text-white rounded-[10px] p-4 z-10">
-                                        <p className="text-xs font-['NanumSquareEB'] leading-relaxed text-white/90">
-                                            {desc}
+                                        text-white rounded-[10px] p-4 z-10 ">
+                                        <p 
+                                            ref={textRef}
+                                            className="text-xs font-['NanumSquareEB'] leading-relaxed text-white/90 break-words h-full w-full">
+                                                {desc}
                                         </p>
                                 </div>
                             </div>
