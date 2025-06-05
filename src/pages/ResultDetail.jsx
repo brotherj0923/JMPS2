@@ -97,8 +97,8 @@ const useScale = () => {
                     <div
                         className="absolute top-[22px] flex flex-col space-y-1 text-left"
                         style={{
-                            left: spot.align === 'left' ? '148px' : '65px',
-                            width: spot.align === 'left' ? '190px' : '185px',
+                            left: spot.align === 'left' ? '153px' : '75px',
+                            width: spot.align === 'left' ? '190px' : '175px',
                         }}
                     >
                         <div className="flex">
@@ -109,7 +109,7 @@ const useScale = () => {
                                 <img
                                     src={`${import.meta.env.BASE_URL}/images/더보기.png`}
                                     alt="더보기"
-                                    className="w-[72px] h-[21px] object-contain cursor-pointer"
+                                    className="w-[35px] h-[20px] object-contain cursor-pointer"
                                 />
                             </a>
                         </div>
@@ -121,17 +121,17 @@ const useScale = () => {
                             {spot.desc}
                         </div>
                         <div
-                            className={`relative flex flex-wrap gap-x-1 gap-y-1`}
+                            className={`relative flex flex-wrap gap-x-1 gap-y-1 font-['NotoSansKR-Regular']`}
                             style={
                                 spot.align === 'right'
-                                ? { left: '40px' } // 두 번째 카드 (이미지가 오른쪽)
+                                ? { left: '15px' } // 두 번째 카드 (이미지가 오른쪽)
                                 : { right: '5px' }  // 첫 번째 & 세 번째 카드 (이미지가 왼쪽)
                             }
                         >
                             {spot.tags.map((tag, tagIdx) => (
                             <span
                                 key={tagIdx}
-                                className="inline-flex items-center justify-center h-[18px] px-2 text-black text-xs"
+                                className="inline-flex items-center justify-center h-[18px] text-gray-500 px-2 text-xs "
                                 style={{
                                 borderRadius: '99px',
                                 border: '1px solid #00000058',

@@ -72,7 +72,7 @@ const useScale = () => {
                     
 
                     <div
-                        className="absolute top-[45px] left-1/2 transform -translate-x-1/2 flex items-center gap-2"
+                        className="absolute top-[44px] left-1/2 transform -translate-x-1/2 flex items-center gap-2"
                         >
                         <p className="text-white text-[28px] font-['NanumSquareEB'] text-center whitespace-nowrap">
                             {name}
