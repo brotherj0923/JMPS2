@@ -67,10 +67,10 @@ const useScale = () => {
 
                 {/* 중앙 타이틀 */}
                 <div className="absolute top-[70px] left-[70px] w-[250px] h-[30px] text-center font-bold text-[#878BFF] text-[25px]">
-                {/* <span className="text-[#B096FF] font-[GmarketSansTTFBold]" >함께 다녀올 </span> */}
-                <span className="text-[#B096FF]" >함께 다녀올 </span>
-                {/* <span className="text-[#A9B8FD] font-[GmarketSansTTFBold]">서브 스팟 </span> */}
-                <span className="text-[#A9B8FD]">서브 스팟 </span>
+                <span className="text-[#B096FF] font-[GmarketSansTTFBold]" >함께 다녀올 </span>
+                
+                <span className="text-[#A9B8FD] font-[GmarketSansTTFBold]">서브 스팟 </span>
+                
 
                 </div>
 
@@ -105,8 +105,8 @@ const useScale = () => {
                         }}
                     >
                         <div className="flex">
-                            {/* <div className="text-[17px] text-gray-600 font-bold font-['NanumSquareEB'] leading-regular"> */}
-                            <div className="text-[17px] text-gray-600 font-bold leading-regular">
+                            <div className="text-[17px] text-gray-600 font-bold font-['NanumSquareEB'] leading-regular">
+                            
                                 {spot.label}
                             </div>
                             <a href={spot.link} target="_blank" rel="noopener noreferrer">
@@ -118,17 +118,17 @@ const useScale = () => {
                             </a>
                         </div>
 
-                        {/* <div className="text-[14px] text-[#B096FF] font-bold font-['GmarketSansTTFBold'] leading-tight"> */}
-                        <div className="text-[14px] text-[#B096FF] font-bold leading-tight">
+                        <div className="text-[14px] text-[#B096FF] font-bold font-['GmarketSansTTFBold'] leading-tight">
+                        
                             {spot.name}
                         </div>
-                        {/* <div className="text-[12px] text-gray-600 font-['NanumSquareEB'] leading-regular" */}
-                        <div className="text-[12px] text-gray-600 leading-regular"
+                        <div className="text-[12px] text-gray-600 font-['NanumSquareEB'] leading-regular"
+                        
                             dangerouslySetInnerHTML={{ __html: spot.desc }}
                         />
                         <div
-                            // className={`relative flex flex-wrap gap-x-1 gap-y-1 font-['NotoSansKR-Regular']`}
-                            className={`relative flex flex-wrap gap-x-1 gap-y-1 `}
+                            className={`relative flex flex-wrap gap-x-1 gap-y-1 font-['NotoSansKR-Regular']`}
+                            
                             style={
                                 spot.align === 'right'
                                 ? { left: '15px' } // 두 번째 카드 (이미지가 오른쪽)

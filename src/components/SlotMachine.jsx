@@ -163,13 +163,13 @@ const SlotMachine = () => {
             />
         </div>
 
-      <div className="absolute top-[90px] left-[68px] text-center text-[19px] text-[#333]  z-40 ">
-        {/* <div className="absolute top-[90px] left-[68px] text-center text-[19px] text-[#333] font-['ONE-Mobile-POP-OTF'] z-40 "> */}
+      
+      <div className="absolute top-[90px] left-[68px] text-center text-[19px] text-[#333] font-['ONE-Mobile-POP-OTF'] z-40 ">
         <p>데이트 장소 고민될 때 눌러봐!</p>
 
       </div>
-        <div className="absolute top-[125px] left-[47px] text-center text-[30px] z-40">
-        {/* <div className="absolute top-[125px] left-[47px] text-center text-[30px] font-['ONE-Mobile-POP-OTF'] z-40"> */}
+        
+        <div className="absolute top-[125px] left-[47px] text-center text-[30px] font-['ONE-Mobile-POP-OTF'] z-40">
             <span className="text-[#B096FF]">랜덤 데이트 </span>
             <span className="text-[#A9B8FD]">슬롯 머신</span>
         </div>
@@ -226,8 +226,8 @@ const SlotMachine = () => {
             onClick={handleSpin}
             disabled={spinning}
             >
-        {/* <div className="text-[#FCF5FF] stroke-outline font-['ONE-Mobile-POP']"> */}
-        <div className="text-[#FCF5FF] stroke-outline ">
+        <div className="text-[#FCF5FF] stroke-outline font-['ONE-Mobile-POP']">
+        
         코스 뽑기
         </div>
         </button>

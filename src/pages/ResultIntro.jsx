@@ -81,16 +81,16 @@ const useScale = () => {
                         className="absolute"
                         style={{ top: "15px", left: "50%", transform:"translate(-50%)" ,width: "max-content",}}
                         >
-                        {/* <p className="text-white text-[15px] text-center font-['NanumSquareEB']">{title}</p> */}
-                        <p className="text-white text-[15px] text-center">{title}</p>
+                        <p className="text-white text-[15px] text-center font-['NanumSquareEB']">{title}</p>
+                        
                     </div>
                     
 
                     <div
                         className="absolute top-[44px] left-1/2 transform -translate-x-1/2 flex items-center gap-2"
                         >
-                        <p className="text-white text-[28px] text-center whitespace-nowrap">
-                        {/* <p className="text-white text-[28px] font-['NanumSquareEB'] text-center whitespace-nowrap"></p>     */}
+                        
+                        <p className="text-white text-[28px] font-['NanumSquareEB'] text-center whitespace-nowrap">   
                             {name}
                         </p>
                     </div>
@@ -102,8 +102,8 @@ const useScale = () => {
                         {tagList.map((tag, idx) => (
                         <span
                             key={idx}
-                            // className="inline-flex items-center justify-center h-[18px] px-4 text-white text-xs font-['NotoSansKR-Regular']"
-                            className="inline-flex items-center justify-center h-[18px] px-4 text-white text-xs"
+                            className="inline-flex items-center justify-center h-[18px] px-4 text-white text-xs font-['NotoSansKR-Regular']"
+                            
                             style={{
                             borderRadius: "99px",
                             border: "1px solid #FFF",
@@ -154,8 +154,8 @@ const useScale = () => {
                                         text-white rounded-[10px] p-4 z-10 ">
                                         <p 
                                             ref={textRef}
-                                            // className="text-xs font-['NanumSquareEB'] leading-relaxed text-white/90 break-words h-full w-full">
-                                            className="text-xs leading-relaxed text-white/90 break-words h-full w-full">
+                                            className="text-xs font-['NanumSquareEB'] leading-relaxed text-white/90 break-words h-full w-full">
+                                            
                                                 {desc}
                                         </p>
                                 </div>
