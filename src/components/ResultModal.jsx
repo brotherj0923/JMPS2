@@ -17,7 +17,7 @@ const ResultModal = ({ onClose , resultLetter }) => {
             <span className="text-[#8399fa]">{THEMES[resultLetter]} 테마 </span>
             <span>코스 당첨!</span>
           </h2>
-          <p className="text-lg mb-6 font-['NotoSansKR-Black'] ">당첨된 테마를 확인해보세요</p>
+          <p className="text-lg mb-6 font-['ONE-Mobile-POP-OTF'] ">당첨된 테마를 확인해보세요</p>
           <button
             className="mt-2 px-4 py-2 bg-white border-2 border-[#9a6afa] rounded-xlg shadow-md hover:shadow-lg transition"
             onClick={onClose}
