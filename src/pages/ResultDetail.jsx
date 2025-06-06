@@ -180,7 +180,7 @@ const useScale = () => {
 
                         {/* 버튼 */}
                         <button
-                        onClick={() => window.open("https://smore.im/form/KUCbgkpUJs")}
+                        onClick={() => window.open("https://smore.im/quiz/EnBaQXRxFs")}
                         className=" bg-[#9CC9FF] h-[40px] w-[257px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
                         >
                         코스 평가하고 공유하기
