@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ImageModal from "../components/ImageModal"; // 👈 클릭 시 전체 이미지 보여줄 모달
 import { subspotData } from "../data/subspotData";
+import { logEvent } from "../utils/logToFirestore";
 
 const DESIGN_WIDTH = 375;
 const DESIGN_HEIGHT = 640;
@@ -28,6 +29,9 @@ const useScale = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const scale = useScale();
+    
+    // 결과 재시도
+    const [retryCount, setRetryCount] = useState(0);
 
     const [showImage, setShowImage] = useState(null); // 이미지 모달 제어용
 
@@ -172,7 +176,16 @@ const useScale = () => {
                     className="absolute bottom-[10px] left-[14px] gap-3 flex items-center">
                         {/* 처음 화면으로 돌아가기 */}
                         <button
-                        onClick={() => navigate(`/`)} // SlotMachine 으로 이동
+                        onClick={() => { 
+                            const newCount = retryCount + 1;
+                            setRetryCount(newCount);
+
+                            logEvent("retry_result_clicked", { 
+                                retryCount: newCount,
+                                courseId: id
+                            }); 
+                            
+                            navigate(`/`)}} // SlotMachine 으로 이동
                         className="h-[40px] w-[80px] bg-[#9CC9FF] rounded-md font-bold text-white hover:bg-[#68acff] transition"
                         >
                         처음으로
@@ -180,7 +193,12 @@ const useScale = () => {
 
                         {/* 버튼 */}
                         <button
-                        onClick={() => window.open("https://smore.im/quiz/EnBaQXRxFs")}
+                        onClick={() =>  {
+                            logEvent("survey_link_clicked" , {
+                                courseId : id,
+                            }); // ✅ Firebase 기록
+
+                            window.open("https://smore.im/quiz/EnBaQXRxFs")}}
                         className=" bg-[#9CC9FF] h-[40px] w-[257px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
                         >
                         코스 평가하고 공유하기

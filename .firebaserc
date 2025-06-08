@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "randomslotjmps"
-  }
+    "default": "daterandomslotjmps",
+    "jmps": "daterandomslotjmps"
+  },
+  "targets": {},
+  "etags": {}
 }
