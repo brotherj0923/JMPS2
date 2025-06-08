@@ -8,45 +8,67 @@ const DESIGN_WIDTH = 375;
 const DESIGN_HEIGHT = 640;
 
 const useScale = () => {
-  const [scale, setScale] = useState(1);
+    const [scale, setScale] = useState(1);
 
-  useEffect(() => {
-    const updateScale = () => {
-      const wRatio = window.innerWidth / DESIGN_WIDTH;
-      const hRatio = window.innerHeight / DESIGN_HEIGHT;
-      setScale(Math.min(wRatio, hRatio));
+    useEffect(() => {
+        const updateScale = () => {
+        const wRatio = window.innerWidth / DESIGN_WIDTH;
+        const hRatio = window.innerHeight / DESIGN_HEIGHT;
+        setScale(Math.min(wRatio, hRatio));
+        };
+
+        updateScale();
+        window.addEventListener("resize", updateScale);
+        return () => window.removeEventListener("resize", updateScale);
+    }, []);
+        
+    return scale;
     };
 
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
+    
 
-  return scale;
-};
 
     const ResultDetail = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const scale = useScale();
-    
-    // 결과 재시도
-    const [retryCount, setRetryCount] = useState(0);
+        const { id } = useParams();
+        const navigate = useNavigate();
+        const scale = useScale();
+        // 결과 재시도
+        const [retryCount, setRetryCount] = useState(0);
 
-    const [showImage, setShowImage] = useState(null); // 이미지 모달 제어용
+        const [showImage, setShowImage] = useState(null); // 이미지 모달 제어용
 
-    // const courseNameMap = {
-    //     A: "서순라길 (로맨틱)",
-    //     B: "경춘선 숲길 (힐링)",
-    //     C: "남산골 한옥마을 (레트로)",
-    //     D: "도산공원 (트렌디)",
-    //     E: "뚝섬미술관 (아트)",
-    // };
+        // const courseNameMap = {
+        //     A: "서순라길 (로맨틱)",
+        //     B: "경춘선 숲길 (힐링)",
+        //     C: "남산골 한옥마을 (레트로)",
+        //     D: "도산공원 (트렌디)",
+        //     E: "뚝섬미술관 (아트)",
+        // };
 
-    const spots = ["A", "B", "C"].map((key, idx) => ({
-        ...subspotData[id][key], // subspotData.A.A 같은 식으로 접근
-        img: `${import.meta.env.BASE_URL}/images/subspots/${id}/${key}.webp`,
-        align: idx % 2 === 0 ? "left" : "right",
+        useEffect(() => {
+                const startTime = sessionStorage.getItem("session_start_time");
+                const enterTime = startTime ? parseInt(startTime, 10) : null;
+
+                    return () => {
+                        if (enterTime) {
+                            const durationSec = Math.round((Date.now() - enterTime) / 1000);
+
+                            logEvent("full_course_duration", {
+                            courseId: id,
+                            seconds: durationSec,
+                            });
+
+                            sessionStorage.removeItem("session_start_time");
+                        }
+                        };
+                }, [id]);
+
+
+
+        const spots = ["A", "B", "C"].map((key, idx) => ({
+            ...subspotData[id][key], // subspotData.A.A 같은 식으로 접근
+            img: `${import.meta.env.BASE_URL}/images/subspots/${id}/${key}.webp`,
+            align: idx % 2 === 0 ? "left" : "right",
     }));
 
     return (

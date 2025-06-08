@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import ResultModal from "./ResultModal";
 import { useNavigate } from "react-router-dom";
+import useSessionStartTime from "../hooks/useSessionStartTime";
 
 const EMOJIS = ["A", "B", "C", "D", "E"];
 const getRandomLetter = () => EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
@@ -38,7 +39,7 @@ const SlotMachine = () => {
   const leverRef = useRef(null);
   const scale = useScale();
 
-  
+  useSessionStartTime();
 
   const closeModalAndGoToResult = () => {
     setShowModal(false);
