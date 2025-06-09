@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { mainspotIntroData } from "../data/mainspotIntroData";
 import fitty from "fitty";
+import { logEvent } from "../utils/logToFirestore";
 
 const DESIGN_WIDTH = 375;
 const DESIGN_HEIGHT = 640;
@@ -42,6 +43,19 @@ const useScale = () => {
             });
         }
         }, [desc]);
+
+    useEffect(() => {
+        const pageStart = Date.now();
+
+        return () => {
+            const pageDuration = Math.round((Date.now() - pageStart) / 1000);
+            logEvent("result_intro_dwell_time", {
+            courseId: id,
+            seconds: pageDuration,
+            });
+        };
+        }, [id]);
+
 
     return (
         <div className="w-screen h-screen flex items-center justify-center overflow-hidden">
@@ -169,7 +183,12 @@ const useScale = () => {
                 <img
                     src={`${import.meta.env.BASE_URL}/images/코스보기최종.png`}
                     alt="코스보기"
-                    onClick={() => navigate(`/result/${id}/detail`)}
+                    onClick={() => {
+                        logEvent("view_course_clicked", {
+                        courseId: id,
+                        });
+
+                        navigate(`/result/${id}/detail`)}}
                     className="absolute right-[40px] top-[195px] w-[105px] h-auto cursor-pointer z-30 animate-pulse shadow-lg rounded-xl"
                     // style={{background:"#ccc", borderRadius:"100px"}}
                 />

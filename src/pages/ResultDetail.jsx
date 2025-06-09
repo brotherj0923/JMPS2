@@ -18,11 +18,15 @@ const useScale = () => {
         setScale(Math.min(wRatio, hRatio));
         };
 
+        
+
         updateScale();
         window.addEventListener("resize", updateScale);
         return () => window.removeEventListener("resize", updateScale);
     }, []);
         
+    
+
     return scale;
     };
 
@@ -66,7 +70,29 @@ const useScale = () => {
                         };
                 }, [id]);
 
+        useEffect(() => {
+            const pageStart = Date.now();
 
+                return () => {
+                    const duration = Math.round((Date.now() - pageStart) / 1000);
+                    logEvent("result_detail_dwell_time", {
+                    courseId: id,
+                    seconds: duration,
+                    });
+                };
+                }, [id]);
+
+        useEffect(() => {
+        const pageStart = Date.now();
+
+        return () => {
+            const pageDuration = Math.round((Date.now() - pageStart) / 1000);
+            logEvent("result_detail_dwell_time", {
+            courseId: id,
+            seconds: pageDuration,
+            });
+        };
+        }, [id]);
 
         const spots = ["A", "B", "C"].map((key, idx) => ({
             ...subspotData[id][key], // subspotData.A.A 같은 식으로 접근

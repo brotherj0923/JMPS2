@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import ResultModal from "./ResultModal";
 import { useNavigate } from "react-router-dom";
 import useSessionStartTime from "../hooks/useSessionStartTime";
+import { logEvent } from "../utils/logToFirestore";
 
 const EMOJIS = ["A", "B", "C", "D", "E"];
 const getRandomLetter = () => EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
@@ -19,6 +20,9 @@ const useScale = () => {
       const hRatio = window.innerHeight / DESIGN_HEIGHT;
       setScale(Math.min(wRatio, hRatio));
     };
+
+    const now = Date.now();
+    sessionStorage.setItem("session_start_time", now.toString());
 
     updateScale();
     window.addEventListener("resize", updateScale);
@@ -40,6 +44,18 @@ const SlotMachine = () => {
   const scale = useScale();
 
   useSessionStartTime();
+
+  useEffect(() => {
+          const pageStart = Date.now();
+  
+          return () => {
+              const pageDuration = Math.round((Date.now() - pageStart) / 1000);
+              logEvent("result_slotmachine_dwell_time", {
+              seconds: pageDuration,
+              });
+          };
+          }, []);
+
 
   const closeModalAndGoToResult = () => {
     setShowModal(false);
