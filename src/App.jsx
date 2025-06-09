@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
 
 
-function App() {
+function App() { 
+
   return (
     <div className="w-screen h-screen bg-white ">
       <Outlet />

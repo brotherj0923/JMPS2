@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ImageModal from "../components/ImageModal"; // 👈 클릭 시 전체 이미지 보여줄 모달
 import { subspotData } from "../data/subspotData";
 import { logEvent } from "../utils/logToFirestore";
+import { logGAEvent } from "../utils/logToGA";
 
 const DESIGN_WIDTH = 375;
 const DESIGN_HEIGHT = 640;
@@ -44,6 +45,8 @@ const useScale = () => {
         //     D: "도산공원 (트렌디)",
         //     E: "뚝섬미술관 (아트)",
         // };
+
+            
 
         useEffect(() => {
                 const startTime = sessionStorage.getItem("session_start_time");
@@ -207,6 +210,14 @@ const useScale = () => {
                                 courseId: id
                             }); 
                             
+                            // GA
+                            logGAEvent("retry_result_clicked", {
+                            category: "Button",
+                            action: "Click",
+                            label: "RetryButton",
+                            courseId: id,
+                            });
+
                             navigate(`/`)}} // SlotMachine 으로 이동
                         className="h-[40px] w-[80px] bg-[#9CC9FF] rounded-md font-bold text-white hover:bg-[#68acff] transition"
                         >
@@ -216,6 +227,13 @@ const useScale = () => {
                         {/* 버튼 */}
                         <button
                         onClick={() =>  {
+                            // GA
+                            logGAEvent("survey_link_clicked", {
+                            category: "Button",
+                            action: "Click",
+                            label: "SurveyButton",
+                            courseId: id,
+                            });
                             logEvent("survey_link_clicked" , {
                                 courseId : id,
                             }); // ✅ Firebase 기록

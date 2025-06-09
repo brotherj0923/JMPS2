@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
 import App from './App.jsx'
-import ResultPage from './pages/Result.jsx';
 import SlotMachine from "./components/SlotMachine";
 import ResultIntro from './pages/ResultIntro';
 import ResultDetail from './pages/ResultDetail';
 
+import { getAnalytics } from "firebase/analytics";
+import { app } from "./firebase";
+
+getAnalytics(app); // ✅ GA 초기화
 
 const router = createBrowserRouter([
   {
