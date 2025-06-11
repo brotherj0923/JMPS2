@@ -49,6 +49,46 @@ const useScale = () => {
         //     D: "도산공원 (트렌디)",
         //     E: "뚝섬미술관 (아트)",
         // };
+      
+        
+        
+        const ToggleFadeMessageButton = ({ onClick }) => {
+            const [showFront, setShowFront] = useState(true);       // 문장 종류
+            const [fadeStage, setFadeStage] = useState("fade-in");  // fade-in | hold | fade-out
+
+            useEffect(() => {
+                let timer;
+
+                if (fadeStage === "fade-in") {
+                timer = setTimeout(() => setFadeStage("hold"), 600); // 빠르게 나타남
+                } else if (fadeStage === "hold") {
+                timer = setTimeout(() => setFadeStage("fade-out"), 2400); // 오래 유지됨
+                } else if (fadeStage === "fade-out") {
+                timer = setTimeout(() => {
+                    setShowFront(prev => !prev); // 문장 전환
+                    setFadeStage("fade-in");     // 다음 텍스트를 다시 나타나게
+                }, 400); // 빠르게 사라짐
+                }
+
+                return () => clearTimeout(timer);
+            }, [fadeStage]);
+
+            return (
+                <button
+                onClick={onClick}
+                className={`h-[40px] w-[257px] text-white font-bold rounded-md transition
+                    bg-[#9CC9FF] hover:bg-[#68acff]
+                    ${fadeStage === "fade-in" ? "opacity-0 animate-fadeIn" : ""}
+                    ${fadeStage === "hold" ? "opacity-100" : ""}
+                    ${fadeStage === "fade-out" ? "opacity-0 animate-fadeOut" : ""}
+                `}
+                >
+                {showFront
+                    ? "코스 평가하고 공유하기"
+                    : "가격, 위치 등 자세한 팁 보기"}
+                </button>
+            );
+            };
 
             
 
@@ -251,24 +291,20 @@ const useScale = () => {
                         </button>
 
                         {/* 버튼 */}
-                        <button
-                        onClick={() =>  {
-                            // GA
-                            logGAEvent("survey_link_clicked", {
-                            category: "Button",
-                            action: "Click",
-                            label: "SurveyButton",
-                            courseId: id,
-                            });
-                            logEvent("survey_link_clicked" , {
-                                courseId : id,
-                            }); // ✅ Firebase 기록
-
-                            window.open("https://smore.im/quiz/EnBaQXRxFs")}}
-                        className=" bg-[#9CC9FF] h-[40px] w-[257px] text-white font-bold rounded-md hover:bg-[#68acff] transition"
-                        >
-                        코스 평가하고 공유하기
-                        </button>
+                        <ToggleFadeMessageButton
+                            onClick={() =>  {
+                                logGAEvent("survey_link_clicked", {
+                                category: "Button",
+                                action: "Click",
+                                label: "SurveyButton",
+                                courseId: id,
+                                });
+                                logEvent("survey_link_clicked", {
+                                courseId: id,
+                                });
+                                window.open("https://smore.im/quiz/EnBaQXRxFs");
+                            }}
+                        />
                 </div>
 
 
