@@ -1,4 +1,5 @@
 # JMPS2
+![슬롯머신](https://github.com/user-attachments/assets/4e7044fe-dcd5-4cae-8ea8-4d026e8d7098)
 
 프로젝트 [데이트 코스 랜덤 슬롯 머신]
 2025.05 ~ 2025.06
